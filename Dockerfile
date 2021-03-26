@@ -11,6 +11,7 @@ RUN pip install -U pip && pip install -r requirements.txt
 
 COPY demosite/ .
 COPY data/pokemon.csv .
+COPY data/invoices.csv .
 COPY docker-entrypoint.sh docker-entrypoint.sh
 
 RUN python ./manage.py collectstatic --clear --no-input && python ./manage.py migrate --no-input && python ./manage.py initadmin
