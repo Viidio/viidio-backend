@@ -6,22 +6,23 @@ from django.conf import settings
 import os
 import csv
 
-NUMBER = 0
-NAME = 1
-TYPE1 = 2
-TYPE2 = 3
-HP = 4
-ATTACK = 5
-DEFENSE = 6
-SP_ATK = 7
-SP_DEF = 8
-SPEED = 9
-GENERATION = 10
-LEGENDARY = 11
+DATE = 0
+NUMBER = 1
+NAME = 2
+TYPE1 = 3
+TYPE2 = 4
+HP = 5
+ATTACK = 6
+DEFENSE = 7
+SP_ATK = 8
+SP_DEF = 9
+SPEED = 10
+GENERATION = 11
+LEGENDARY = 12
 
 
 def load_pokemon_data(apps, schema_editor):
-    Pokemon = apps.get_model('web', 'Pokemon')
+    Pokemon = apps.get_model('api', 'Pokemon')
 
     with open(settings.DATA_DIR / 'pokemon.csv', newline='') as csvfile:
         pokemon_reader = csv.reader(csvfile, delimiter=',')
@@ -46,7 +47,7 @@ def load_pokemon_data(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('web', '0001_initial'),
+        ('api', '0001_initial'),
     ]
 
     operations = [
