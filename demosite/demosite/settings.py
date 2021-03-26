@@ -30,6 +30,15 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     'example.com',
+    '.wdpr.local',
+    '.wdpr.com',
+]
+
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    'localhost',
+    # ...
 ]
 
 # WunderPreview specific configuration
@@ -75,6 +84,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'debug_toolbar',
     'rest_framework',
     'api',
 ]
@@ -89,6 +99,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'demosite.urls'

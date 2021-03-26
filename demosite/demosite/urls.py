@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
 from django.urls import path, include
 
 from api import views
 from api.viewsets import PokemonViewSet, InvoiceViewSet
 from rest_framework import routers, serializers, viewsets
+import debug_toolbar
 
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -33,4 +35,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
 
     path('', views.index, name='index'),
+
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
