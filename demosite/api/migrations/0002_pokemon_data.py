@@ -21,7 +21,7 @@ LEGENDARY = 11
 
 
 def load_pokemon_data(apps, schema_editor):
-    Pokemon = apps.get_model('web', 'Pokemon')
+    Pokemon = apps.get_model('api', 'Pokemon')
 
     with open(settings.DATA_DIR / 'pokemon.csv', newline='') as csvfile:
         pokemon_reader = csv.reader(csvfile, delimiter=',')
@@ -46,7 +46,7 @@ def load_pokemon_data(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('web', '0001_initial'),
+        ('api', '0001_initial'),
     ]
 
     operations = [
